@@ -1,5 +1,7 @@
 /*
-Copyright © 2021 NAME HERE <EMAIL ADDRESS>
+Copyright © 2021 Jorge Gomez Rivas <jorgegomezrivas@gmail.com>
+Use of this source code is governed by an MIT-style license that can be
+found in the LICENSE file at https://github.com/open-arch/openarch-cli/
 
 */
 package cmd
@@ -10,23 +12,27 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var Name string
+
 // initCmd represents the init command
 var initCmd = &cobra.Command{
 	Use:   "init",
 	Short: "Initializes an OpenArch project",
 	Long: "Initializes an OpenArch project with its folder structure and examples.",
-	Run: func(cmd *cobra.Command, args []string) {
+	RunE: func(cmd *cobra.Command, args []string) error {
 		// TODO Handle error?
-		name, _ := cmd.Flags().GetString("name")
-
-		initProject(name)
+		if err := initProject(); err != nil {
+			return err
+		}
+		return nil
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(initCmd)
 	
-	initCmd.PersistentFlags().String("name", "", "The name of the project")
+	initCmd.PersistentFlags().StringVarP(&Name, "name", "n", "", "The name of the project (required)")
+	initCmd.MarkPersistentFlagRequired("name")
 
 	// Here you will define your flags and configuration settings.
 
@@ -39,8 +45,10 @@ func init() {
 	// initCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 
-func initProject(name string) {
+func initProject() error {
 	// TODO Add default name if is null or empty
 
-	fmt.Printf("init called: %v", name)
+	fmt.Printf("init called: %v", Name)
+
+	return nil
 }
