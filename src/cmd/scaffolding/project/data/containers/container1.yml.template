@@ -1,0 +1,5 @@
+id: container1
+type: container
+context: context1
+uses:
+  - container2
