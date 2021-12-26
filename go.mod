@@ -1,4 +1,4 @@
-module github.com/open-arch/openarch-cli
+module github.com/open-arch/oa
 
 go 1.17
 

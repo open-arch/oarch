@@ -6,7 +6,7 @@ found in the LICENSE file at https://github.com/open-arch/openarch-cli/
 */
 package main
 
-import "github.com/open-arch/openarch-cli/cmd"
+import "github.com/open-arch/oa/cmd"
 
 func main() {
 	cmd.Execute()
