@@ -16,7 +16,7 @@ import (
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "oa",
+	Use:   "oarch",
 	Short: "A CLI for OpenArch",
 	Long: "The OpenArch CLI creates, manages, and publishes your OpenArch projects.",
 	// Uncomment the following line if your bare application
@@ -38,7 +38,7 @@ func init() {
 	// Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.
 
-	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.oa.yaml)")
+	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.oarch.yaml)")
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.

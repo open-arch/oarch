@@ -1,4 +1,4 @@
-module github.com/open-arch/oa
+module github.com/open-arch/oarch
 
 go 1.17
 
