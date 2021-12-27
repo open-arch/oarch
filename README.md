@@ -1,5 +1,7 @@
 # OpenArch CLI
 
+![OpenArch][openarch-logo]
+
 The OpenArch CLI creates, manages, and publishes your OpenArch projects.
 
 - [OpenArch CLI](#openarch-cli)
@@ -31,3 +33,4 @@ oarch init
 
 [cobra-cli]: https://github.com/spf13/cobra
 [golang]: https://go.dev/
+[openarch-logo]: .attachments/openarch-logo-extended.svg
