@@ -3,6 +3,8 @@
 ![OpenArch][openarch-logo]
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/open-arch/oarch/Build?longCache=tru&label=Build&logo=github%20actions&logoColor=fff&style=flat-square)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/open-arch/oarch?style=flat-square)
+![GitHub](https://img.shields.io/github/license/open-arch/oarch?style=flat-square)
 [![Go Report Card](https://goreportcard.com/badge/github.com/open-arch/oarch?style=flat-square)](https://goreportcard.com/report/github.com/open-arch/oarch)
 
 The OpenArch CLI creates, manages, and publishes your OpenArch projects.
