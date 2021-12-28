@@ -1,4 +1,4 @@
-name: Build OpenArch CLI
+name: Build
 
 on:
   pull_request:

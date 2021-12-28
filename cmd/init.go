@@ -8,9 +8,9 @@ package cmd
 
 import (
 	"embed"
-	"io"
-    "io/fs"
 	"fmt"
+	"io"
+	"io/fs"
 	"os"
 	"path"
 	"path/filepath"
@@ -23,18 +23,18 @@ const embededFilesDir = "scaffolding/project"
 var (
 	//go:embed scaffolding/project/*
 	embededFiles embed.FS
-	projectPath string
-	initCmd = &cobra.Command{
+	projectPath  string
+	initCmd      = &cobra.Command{
 		Use:   "init",
 		Short: "Initializes an OpenArch project",
-		Long: "Initializes an OpenArch project with its folder structure and examples.",
-		Run: initProject,
+		Long:  "Initializes an OpenArch project with its folder structure and examples.",
+		Run:   initProject,
 	}
 )
 
 func init() {
 	rootCmd.AddCommand(initCmd)
-	
+
 	initCmd.PersistentFlags().StringVar(&projectPath, "path", ".", "The path of the project")
 }
 
@@ -75,7 +75,7 @@ func handleTemplateEntry(filePath string, entry fs.DirEntry, err error) error {
 	const templateExt = ".template"
 	sourceFileName := entry.Name()
 	if !entry.IsDir() && path.Ext(sourceFileName) == templateExt {
-		destinationFileName := sourceFileName[0:len(sourceFileName)-len(templateExt)]
+		destinationFileName := sourceFileName[0 : len(sourceFileName)-len(templateExt)]
 		destinationFilePath := path.Join(projectPath, filepath.Dir(filePath), destinationFileName)
 		err = copyEmbededFile(filePath, destinationFilePath)
 		if err != nil {
@@ -93,35 +93,35 @@ func handleTemplateEntry(filePath string, entry fs.DirEntry, err error) error {
 func copyEmbededFile(sourceFilePath string, destinationFilePath string) error {
 	buffer := make([]byte, 1024)
 
-    sourceFileContent, err := embededFiles.Open(path.Join(embededFilesDir, sourceFilePath))
-    if err != nil {
-        return err
-    }
-    defer sourceFileContent.Close()
+	sourceFileContent, err := embededFiles.Open(path.Join(embededFilesDir, sourceFilePath))
+	if err != nil {
+		return err
+	}
+	defer sourceFileContent.Close()
 
 	if err = createDirIfNotExists(filepath.Dir(destinationFilePath)); err != nil {
 		return err
 	}
-    destinationFileContent, err := os.Create(destinationFilePath)
-    if err != nil {
-        return err
-    }
-    defer destinationFileContent.Close()
+	destinationFileContent, err := os.Create(destinationFilePath)
+	if err != nil {
+		return err
+	}
+	defer destinationFileContent.Close()
 
-    for {
-        n, err := sourceFileContent.Read(buffer)
-        if err != nil && err != io.EOF {
-            return err
-        }
+	for {
+		n, err := sourceFileContent.Read(buffer)
+		if err != nil && err != io.EOF {
+			return err
+		}
 
-        if n == 0 {
-            break
-        }
+		if n == 0 {
+			break
+		}
 
-        if _, err := destinationFileContent.Write(buffer[:n]); err != nil {
-            return err
-        }
-    }
+		if _, err := destinationFileContent.Write(buffer[:n]); err != nil {
+			return err
+		}
+	}
 
 	return nil
 }
