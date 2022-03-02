@@ -1,0 +1,48 @@
+name: ⚡ Epic
+description: Have a new epic
+title: "[<milestone>] <description>"
+labels: ["enhancement"]
+body:
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I have written a descriptive issue title
+          required: true
+        - label: I have added created the milestone
+          required: true
+        - label: I have added to a project
+          required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: A brief description of the epic
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: The expected output of the epic
+      placeholder: |
+        - [ ] A design document is created
+        - [ ] The architecture document is updated
+        - [ ] It is tested in the labs environment
+    validations:
+      required: true
+  
+  - type: textarea
+    id: tasks
+    attributes:
+      label: User stories
+      description: List the user stories needed to finish the epic
+      placeholder: |
+        - [ ] Create the design document
+        - [ ] Update the architecture document
+        - [ ] Test in labs environment
+    validations:
+      required: false

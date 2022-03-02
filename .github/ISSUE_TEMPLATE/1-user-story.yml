@@ -1,0 +1,58 @@
+name: 🚀 User story
+description: Have a new idea/feature
+title: "[<milestone>] <description>"
+labels: ["enhancement"]
+body:
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I have written a descriptive issue title
+          required: true
+        - label: I have added the milestone
+          required: true
+        - label: I have added to a project
+          required: true
+        - label: I have searched existing issues to ensure a similar issue has not already been created
+          required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: A brief description of the issue
+    validations:
+      required: true
+
+  - type: input
+    id: depends-on
+    attributes:
+      label: Depends on
+      placeholder: "- [ ] #1"
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: The expected output of the issue
+      placeholder: |
+        - [ ] A design document is created
+        - [ ] The architecture document is updated
+        - [ ] It is tested in the labs environment
+    validations:
+      required: true
+  
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Tasks
+      description: List the subtasks needed to finish the issue
+      placeholder: |
+        - [ ] Create the design document
+        - [ ] Update the architecture document
+        - [ ] Test in labs environment
+    validations:
+      required: false
