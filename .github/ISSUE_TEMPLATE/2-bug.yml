@@ -1,0 +1,65 @@
+name: 🐛 Bug
+description: Report a bug
+title: "<description>"
+labels: ["bug"]
+body:
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I have written a descriptive issue title
+          required: true
+        - label: I have added to a project
+          required: true
+        - label: I have searched existing bugs to ensure a similar bug has not already been created
+          required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: A clear and concise description of what the bug is
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      options:
+        - Labs
+        - Sandbox
+        - Live
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to reproduce
+      description: |
+        List of steps, sample code, or a link to code or a project that reproduces the behavior.
+        Make sure you place a stack trace inside a [code (```) block](https://docs.github.com/en/github/writing-on-github/creating-and-highlighting-code-blocks).
+      placeholder: |
+        - Make a request to the API with parameters X
+        - Make a second request with the ID of the previous request
+        - Check the reporting
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-behavior
+    attributes:
+      label: Current behavior
+      description: How it is behaving currently
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen
+    validations:
+      required: true
